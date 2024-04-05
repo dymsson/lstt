@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop List</title>
+</head>
+<body>
+    <h1>Shop List</h1>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for shop in shops %}
+            <tr>
+                <td>{{ shop.title }}</td>
+                <td>{{ shop.description }}</td>
+                <td><a href="{% url 'update_shop' shop.pk %}">Edit</a></td>
+                <td><a href="{% url 'delete_shop' shop.pk %}">Delete</a></td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <td><a href="{% url 'create_shop' %}">Create new shop</a></td>
+        </tr>
+        <tr>
+            <td><a href="{% url 'pages' %}">Main page</a></td>
+        </tr>
+    </table>
+</body>
+</html>
